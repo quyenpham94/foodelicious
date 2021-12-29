@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Search Ingredient{% endblock %}
+
+{% block content %}
+<h1>Search Ingredient </h1>
+
+<div class="container" id="search-ingredient" >
+    <form type="submit">
+        <div class="autocomplete suggestions">
+
+            <input data-autocomplete list="food-suggestion" class="form-control" type="text" name="query" placeholder="Type Ingredient (eg. carrots, spinach, etc.)">
+
+            <button class="btn btn-outline-success btn-lg" style="background-color:#fda898;" type="submit" >Search</button>
+        </div> 
+    </form>
+        
+</div>      
+<div class="add-food">
+    {% for i in ingredients %}
+        <div class="jumbotron1 col-3 col-sm-10-6 m-2">
+                <a href="/ingredients/{{i.id}}" data-id="{{i.id}}" class="show-ingredient">
+                    <div>
+                        <div class="card-body meal-info text-center">
+                            <div class="card-body border" style="background-color: #fef6f4;">
+                                <p class="ingredient-name">{{ i.name }}</p> </a> 
+                                <p>Calories: {{calories}} </p>
+                              
+                                {% if g.user %}
+                                <button data-id="{{i.id}}" class='meal btn btn-sm border'>
+                                    <i class="{% if i.id in ingredient_ids %}fa fa-plus fa-2x{% else %}fa fa-minus fa-2x{% endif %}"></i>
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+               
+        </div>
+            
+    {% endfor %}
+</div>
+
+   
+
+
+<div class="container">
+    <a href="/meals" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Your Meal</a>
+</div>
+<div class="container">
+    <a href="/" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Home</i></a>  
+</div>
+
+{% endblock %}
+
+

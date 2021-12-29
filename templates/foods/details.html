@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}{{recipes['title']}}{% endblock %}
+{% block content %}
+<div class="container">
+    {% if recipes %}
+    <div id="recipe-id" class="row justify-content-md-center">
+        <div class="jumbojon col-md-9 my-4 px-4">
+            <h2 class="display-4 text-center">{{ recipes['title'] }}</h2>
+                <a href="/" class="btn btn-outline-success btn-lg" style="background-color: #fda898;">Home</a>
+                    {% if not g.user %}
+                    <a href="/login">
+                        <button type="button" class="btn btn-outline-danger"></button>
+                    </a>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <div class="card border">
+                                <img class="recipe-img" src="{{recipes.image}}" alt="{{recipes.name}}">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="text-center">Steps</h3>
+                                {% for recipe in recipes.analyzedInstructions %}
+                                <ul class="list-group">
+                                    {% if recipe.name %}
+                                    <p>{{ recipe.name }}</p>
+                                    {% endif %}
+                                    {% if recipe.steps %}
+                                    {% for s in recipe.steps %}
+                                    <li>{{ s.step }}</li>
+                                    {% endfor %}
+                                    {% elif recipe.instructions %}
+                                    <p class="instructions">{{recipe.instructions.replace('.', '. \n \n')}}</p>
+                                    {% else %}
+                                    <p>Sorry!</p>
+                                    <p>We can't find any instruction for this recipe!</p>
+                                    {% endif %}
+                                </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-5">
+                            <div class="info-list">
+                                <ul>
+                                    <li>Total cook time: {{recipes.readyInMinutes}} minutes</li>
+                                    <li>Serves: {{recipes.servings}} </li>
+                                </ul>
+                                <div>
+                                    <ul>
+                                      {% if recipes.calories %}
+                                        <li>Calories</li>
+                                      {% endif %}
+                                      {% if recipes.sustainable %}
+                                        <li>Sustainable</li>
+                                      {% endif %}
+                                      {% if recipes.ketogenic %}
+                                        <li>Ketogenic</li>
+                                      {% endif %}
+                                      {% if recipes.vegetarian %}
+                                        <li>Vegetarian</li>
+                                      {% endif %}
+                                      {% if recipes.vegan %}
+                                        <li>Vegan</li>
+                                      {% endif %}
+                                      {% if recipes.glutenFree %}
+                                        <li>Gluten free</li>
+                                      {% endif %}
+                                      {% if recipes.dairyFree %}
+                                        <li>Dairy free</li>
+                                      {% endif %}
+                                      {% if recipes.whole30 %}
+                                        <li>Whole30</li>
+                                      {% endif %}
+                                      <hr>
+                                      {% if 'likes' not in recipes%}
+                                        <li>How many likes has this recipe? {{recipes['aggregateLikes']}} <i class="fas fa-thumbs-up"></i></li>
+                                      {% else %}
+                                        <li>How many likes has this recipe? {{recipes['likes']}} <i class="fas fa-thumbs-up"></i></li>
+                                      {% endif %}
+                                      {% if recipes.veryHealthy %}
+                                        <li><i class="fas fa-hand-holding-heart text-danger"></i> Healthy</li>
+                                      {% endif %}
+                                      {% if recipes.veryPopular %}
+                                        <li><i class="fas fa-fire text-warning"></i> Popular</li>
+                                      {% endif %}
+                                    </ul>
+                                    <h3 class="text-center">Ingredients</h3>
+                                        <ul class="list-group">
+                                            {% for i in recipes.extendedIngredients %}
+                                            <li data-id="{{i.id}}">{{i.original}}</li>
+                                            {% endfor %}
+                                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                 
+        </div>
+    </div>
+    {% else %}
+    <div class="jumbotron my-4">
+        <div class="container">
+            <h1 class="display-4 text-danger text-center">Sorry! Failed to get recipe information!</h1>
+             <a href="/"class="btn btn-outline-success btn-lg" style="background-color: #fda898;">Home</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
