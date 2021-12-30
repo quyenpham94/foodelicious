@@ -1,3 +1,3 @@
 import os
 
-YOUR_API_KEY = '05e1a156897a47dc8cd89c258a0c35c8'
+YOUR_API_KEY = ''
