@@ -5,7 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from forms import UserForm, LoginForm, UserEditForm
 import requests
 from helper import do_logout, add_ingredients_from_api_response, add_recipe_from_api_response, diets, maxFats, maxCalorieses
-from keys import YOUR_API_KEY
+# from keys import YOUR_API_KEY
 
 CURR_USER_KEY = "user_id"
 
@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SQLALCHEMY_ECHO'] = False
 
 BASE_URL = "https://api.spoonacular.com/"
-API_KEY = YOUR_API_KEY
+API_KEY = ""
 
 
 connect_db(app)
