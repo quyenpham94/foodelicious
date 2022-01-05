@@ -5,17 +5,21 @@ from sqlalchemy.exc import IntegrityError
 from forms import UserForm, LoginForm, UserEditForm
 import requests
 from helper import do_logout, add_ingredients_from_api_response, add_recipe_from_api_response, diets, maxFats, maxCalorieses
-# from keys import YOUR_API_KEY
 
 CURR_USER_KEY = "user_id"
-
  
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "postgresql:///eat_clean_user")
+uri = os.environ.get("DATABASE_URL", "postgresql:///eat_clean_user")
+if uri and uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SQLALCHEMY_ECHO'] = False
+
+
 
 BASE_URL = "https://api.spoonacular.com/"
 API_KEY = ""

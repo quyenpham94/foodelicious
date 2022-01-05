@@ -172,3 +172,5 @@ class Favorite(db.Model):
 
     def __repr__(self):
         return f'<Favorite= user_id:{self.user_id} recipe_id:{self.recipe_id}>'
+    
+    
