@@ -7,25 +7,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   
   <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/style.css"> 
 </head>
 
 <body style="background-color: #e5f0f1;">
   <nav class="navbar navbar-dark justify-content-between" style="background-color: #034c52;">
     <div class="container">
-      <a href="/" class="navbar-brand text-light" >Foodelicious</a>
+      <a href="/" class="navbar-brand text-light" ><img class="logo" src="/static/image/home-icon.png" alt="logo">Foodelicious</a>
       <ul class="nav navbar-nav flex-row float-right">
         {% if session['user_id'] %}
         <li class="nav-item">
-          <a class="nav-link pr-3 text-light" href="/users/{{g.user.id}}">{{g.user.username}}</a>
+          <a class="nav-link pr-3 text-light" href="/users/{{g.user.id}}"><img class="logo" src="/static/image/user-icon.png" alt="logo">{{g.user.username}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pr-3 text-light" href="/favorites">Favorite-Recipes</a>
+          <a class="nav-link pr-3 text-light" href="/favorites"><img class="logo" src="/static/image/fav-icon.png" alt="logo">Favorite-Recipes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pr-3 text-light" href="/meals">My-Meal</a>
+          <a class="nav-link pr-3 text-light" href="/meals"><img class="logo" src="/static/image/meal-icon.png" alt="logo">My-Meal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pr-3 text-light" href="/logout">Logout</a>
+          <a class="nav-link pr-3 text-light" href="/logout"><img class="logo" src="/static/image/out-icon.png" alt="logo">Logout</a>
         </li>
         {% else %}
         <li class="nav-item">

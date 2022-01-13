@@ -17,7 +17,7 @@
                 {% if g.user %}
                 <div class="vertical-group meal-info">
                     <button style="float: right;" data-id="{{i.id}}" class='meal btn btn-sm'>
-                        <i class="{% if i.id in ingredient_ids %}fa fa-plus fa-2x{% else %}fa fa-minus fa-2x{% endif %}"></i></button>
+                        <i class="{% if i.id in ingredient_ids %}fa fa-minus fa-2x{% else %}fa fa-plus fa-2x{% endif %}"></i></button>
                 </div>
                 {% endif %}
             </div>
@@ -25,7 +25,7 @@
           </div>
       </div>
       {% endfor %}
-      <div>
+      <div class="flex">
           <form type="click">
               <a href="/search" class="btn btn-outline-success btn-lg" style="background-color: #fda898;">Add More Food</a>
           </form>
@@ -36,7 +36,7 @@
         </form>
      
     </div>
-      <div>
+      <div class="flex">
         <a href="/" class="btn btn-outline-success btn-lg" style="background-color: #fda898;">Home</i></a>
       </div>
       

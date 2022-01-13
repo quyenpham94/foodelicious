@@ -1,0 +1,15 @@
+.logo {
+    width: 30px;
+    height: 30px;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+h1, h2, h3, h4, h5, h6, h8, p, a, span, button {
+    font-family: 'Roboto Mono', monospace;
+}

@@ -15,8 +15,8 @@ $(document).ready(function(){
 	
 		if (event.target.classList.contains('fa-minus')) {
 			await axios.delete(`/api/meal/${id}`)
-			$(event.target).toggleClass('fa fa-plus')
 			$(event.target).toggleClass('fa fa-minus')
+			$(event.target).toggleClass('fa fa-plus')
 			console.log('Delete Ingredient From Meal')
 		} else {
 			try {

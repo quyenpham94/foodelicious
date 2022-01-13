@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}Favorites{% endblock %}
 {% block content %}
-<div class="container">
+<div class="border border-success rounded p-4 container">
   {% if g.user.recipes %}
   <div id="recipe-info" class="row justify-content-center align-items-center">
     {% for r in g.user.recipes %}
-    <div class="jumbotron1 col-3 col-sm-10-6 m-2 mx-auto">
+    <div class="jumbotron col-3 col-sm-10-6 m-2 mx-auto">
       <a href="/recipes/{{r.id}}" data-id="{{r.id}}" class="show-recipe">
         <div class="card border mb-4 mx-auto" style="background-color: #fef6f4;">
           <img class="card-img-top" src="{{r['image']}}" alt="Card image cap" alt="{{r.name}}"> 
