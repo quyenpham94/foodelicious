@@ -20,7 +20,7 @@
                     <div>
                         <div class="card-body meal-info text-center">
                             <div class="card-body border" style="background-color: #fef6f4;">
-                                <p class="ingredient-name">{{ i.name }}</p>
+                                <p class="ingredient-name text-danger">{{ i.name }}</p>
                                 <a href="/ingredients/{{i.id}}" data-id="{{i.id}}" class="show-ingredient"><img class="logo" src="/static/image/nutrition-icon.png" alt="logo"><p>Nutrition </p></a> 
                               
                                 {% if g.user %}

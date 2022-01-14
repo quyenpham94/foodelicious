@@ -2,14 +2,15 @@
 {% block title %}Random Choice{% endblock %}
 {% block content %}
 
-<div class="container row justify-content-center align-items-center mt-3">
+<div class="border border-success rounded p-4 container row justify-content-center align-items-center mt-3">
+
     {% if recipes %}
-    <div id="recipe-info" class="row">
+    <div id="recipe-info" class="row text-center">
         <div class="container">
             <h1>Some Random Recipes</h1>
         </div>
     </div>
-    <div id="card">
+    <div id="card" class="text-center mb-4">
         <h5>Refine Your Search By Diet and Nutrition</h5>
             <form id="card" action="/refine" role="refine">
                 <select class="select" name="diet" id="diet">
@@ -36,16 +37,16 @@
                         {% endfor %}
                     </option>
                 </select>
-                <div>
+                
                     <button class="btn btn-outline-success btn-lg" style="background-color:#fda898;" type="submit">Refine</button>
-                    <a href="/" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Home</a>
-                </div>
+                   
+                
             </form>
     </div>
     {% for r in recipes %}
-        <div class="card border col-3 justify-content-center align-items-center mb-4 mx-auto" style="background-color: #fef6f4;">
+        <div class="card border col-4 col-sm-10-6 justify-content-center align-items-center mb-4 mx-auto" style="background-color: #fef6f4;">
             <a href="/recipes/{{r.id}}" data-id="{{r.id}}" class="show-recipe">
-                <div class="vertical-group">
+                <div class="vertical-group mb-4 mx-auto">
                     <img src="{{r.image}}" class="card-img-top" alt="{{r.name}}">
                         <div class="card-body recipe-info">
                             <h5 class="text-danger text-center card-title">{{r['title']}}</h5></a>
@@ -74,7 +75,9 @@
         </div>
     </div>
     {% endif %}
-
+    <div class="flex">
+        <a href="/" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Home</a>
+    </div>
 </div>
 {% endblock %}
 

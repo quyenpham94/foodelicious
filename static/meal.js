@@ -31,11 +31,3 @@ $(document).ready(function(){
 	})
     
 })
-$(document).ready(function(){
-    const removeMeal = $('.flex')
-    removeMeal.on('click', function(e){
-        e.preventDefault();
-        $(".card-body").parent().remove();
-        console.log("delete your meal")
-    })
-})

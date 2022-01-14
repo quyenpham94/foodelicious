@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}{{recipes['title']}}{% endblock %}
 {% block content %}
-<div class="container">
+<div class="border border-success rounded p-4 container">
     {% if recipes %}
     <div id="recipe-id" class="row justify-content-md-center">
-        <div class="jumbojon col-md-9 my-4 px-4">
-            <h2 class="display-4 text-center">{{ recipes['title'] }}</h2>
-                <a href="/" class="btn btn-outline-success btn-lg" style="background-color: #fda898;">Home</a>
+        <div class="col-md-9 my-4 px-4">
+            <h2 class="display-4 text-center text-danger">{{ recipes['title'] }}</h2>
+                
                     {% if not g.user %}
                     <a href="/login">
                         <button type="button" class="btn btn-outline-danger"></button>
                     </a>
                     {% endif %}
                     <div class="row">
-                        <div class="col-md-6 my-2">
-                            <div class="card border">
+                        <div class="col-md-6 my-6">
+                            <div class="card border-right border-success">
                                 <img class="recipe-img" src="{{recipes.image}}" alt="{{recipes.name}}">
                             </div>
-                            <div class="card-body">
-                                <h3 class="text-center">Steps</h3>
+                            <div class="card-body border-right border-success">
+                                <h3 class="text-center text-danger">Steps</h3>
                                 {% for recipe in recipes.analyzedInstructions %}
                                 <ul class="list-group">
                                     {% if recipe.name %}
@@ -38,7 +38,7 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="col-md-5 col-lg-5">
+                        <div class="col-md-5 col-lg-5 m-2">
                             <div class="info-list">
                                 <ul>
                                     <li>Total cook time: {{recipes.readyInMinutes}} minutes</li>
@@ -72,9 +72,9 @@
                                       {% endif %}
                                       <hr>
                                       {% if 'likes' not in recipes%}
-                                        <li>How many likes has this recipe? {{recipes['aggregateLikes']}} <i class="fas fa-thumbs-up"></i></li>
+                                        <li>How many likes has this recipe? {{recipes['aggregateLikes']}} <i class="text-danger fas fa-thumbs-up"></i></li>
                                       {% else %}
-                                        <li>How many likes has this recipe? {{recipes['likes']}} <i class="fas fa-thumbs-up"></i></li>
+                                        <li>How many likes has this recipe? {{recipes['likes']}} <i class="text-danger fas fa-thumbs-up"></i></li>
                                       {% endif %}
                                       {% if recipes.veryHealthy %}
                                         <li><i class="fas fa-hand-holding-heart text-danger"></i> Healthy</li>
@@ -83,8 +83,8 @@
                                         <li><i class="fas fa-fire text-warning"></i> Popular</li>
                                       {% endif %}
                                     </ul>
-                                    <h3 class="text-center">Ingredients</h3>
-                                        <ul class="list-group">
+                                    <h3 class="text-center text-danger">Ingredients</h3>
+                                        <ul class="list-group m-3">
                                             {% for i in recipes.extendedIngredients %}
                                             <li data-id="{{i.id}}">{{i.original}}</li>
                                             {% endfor %}
@@ -103,5 +103,8 @@
         </div>
     </div>
     {% endif %}
+</div>
+<div class="flex">
+  <a href="/" class="btn btn-outline-success btn-lg" style="background-color: #fda898;">Home</a>
 </div>
 {% endblock %}
