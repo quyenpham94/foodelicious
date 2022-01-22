@@ -5,14 +5,14 @@
 
 This project take the information from the Spoonacular API (https://spoonacular.com/)
 
-### Project Proposal
+#### <div align='center'> Project Proposal </div>
 
 ## Goal:
 Foodelicious is a web application that is designed to support people's daily meal with numerous recipes. It also provides the nutrition of each recipe and each food that user eat everyday so that they can manage their diet. User can refine the diet, calories, and fats to reach their limit nutrition every day. Users are also able to save their favorite recipes in their account so that they can re-read them.    
 ### The demographic of users:
 Everyone who wants to have a healthy life or diet process can use this website to support their goal. It could be easy-to-use so that the user does not need to know some specific high technology. The user just needs to search/click on the food they ate on their meal and the app will calculate the nutrition itself and return to the user.
 
-## Data Sources:
+## Data Sources
 <a>[Spoonacular API](https://spoonacular.com/food-api)</a>. You will need to create an account to get a free access to their dataset
 
 ## Database schema
@@ -30,7 +30,7 @@ They can save their favorite meal in order to use it again in the future.
 They also can remove their favorite meal and add another favorite meal (I’m sure their taste will change a lot)
 There will be some recommended meals so that the user can choose and follow it to make their meal. 
 
-## Technologies:
+## Technologies
 Python/Flask, PostgreSQL, SQLAlchemy, Heroku, Jinja, RESTful APIs, JavaScript, HTML, CSS
 
 ## Installation
@@ -82,6 +82,6 @@ _**You will need to set up PostgreSQL database for this application. Once that i
   $ flask run
   ```
 
-4. Open web browser and run the app on the port for your server http://127.0.0.1:50000  
+4. Open web browser and run the app on the port for your server http://127.0.0.1:5000 
 
 Author <a>[Quyen Pham](https://github.com/quyenpham94)
