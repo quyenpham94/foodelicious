@@ -58,7 +58,7 @@ You will need python3 and pip3 installed for this project. You will also need to
 5. Open the app.py file and change the current API_KEY with your API_KEY that you get from https://spoonacular.com
   ```sh
   API_KEY = ""
-
+  ```
 <br>
 
 _**You will need to set up PostgreSQL database for this application. Once that is done you can move to the next step.**_
@@ -76,7 +76,7 @@ _**You will need to set up PostgreSQL database for this application. Once that i
   In [1]: run app.py
   In [2]: db.create_all()
   In [1]: quit()
-
+  ```
 3. Run the app.
   ```sh
   $ flask run
