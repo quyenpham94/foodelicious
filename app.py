@@ -179,6 +179,26 @@ def search_ingredient():
     ### add favorite function here
     return render_template("/foods/search.html", ingredients=ingredients, ingredient_ids=ingredient_ids, meals=meals)
 
+@app.route("/filter")
+def find_by_ingredient():
+    query = request.args.get('query', "")
+    
+    response = requests.get(f"{BASE_URL}/recipes/findByIngredients", params={ "apiKey": API_KEY, "ingredients": query, "number": 9 })
+    data = response.json()
+   
+    if len(data) == 0:
+        flash("Sorry, search limit reached!", "warning")
+        render_template("index.html")
+    
+    
+    if g.user:
+        recipe_ids = [r.id for r in g.user.recipes]
+    else:
+        recipe_ids = []
+
+    favorites = [f['id'] for f in data if f['id'] in recipe_ids]
+    return render_template("/foods/random.html", recipes=data, recipe_ids=recipe_ids, favorites=favorites)
+
 @app.route("/ingredients/<int:id>")
 def show_ingredient(id):
     res1 = requests.get(f"{BASE_URL}/recipes/{id}/nutritionWidget.json", params={ "apiKey": API_KEY })
@@ -195,8 +215,6 @@ def meal_page():
     if not g.user:
         flash('You must be logged in first','danger')
         return redirect("/login")
-    
-
 
     user_response = g.user.ingredients
     ingredient_ids = [r.id for r in user_response]
@@ -267,6 +285,7 @@ def search_recipe():
     """Inside random recipes show refine search by diets and nutritions"""
     # query = request.args.get('query', "")
     
+
     diet = request.args.get('diet', "")
     maxFat = request.args.get('maxFat',"")
     maxCalories = request.args.get('maxCalories', "")

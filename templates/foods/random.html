@@ -7,54 +7,62 @@
     {% if recipes %}
     <div id="recipe-info" class="row text-center">
         <div class="container">
-            <h1>Some Random Recipes</h1>
+            <h1 class="text-center text-danger">Random Recipes</h1>
         </div>
     </div>
-    <div id="card" class="text-center mb-4">
-        <h5>Refine Your Search By Diet and Nutrition</h5>
-            <form id="card" action="/refine" role="refine">
-                <select class="select" name="diet" id="diet">
-                    <option selected>
-                        <span class="text-muted">Diets</span></option>
-                        {% for diet in diets %}
-                        <option value="{{diet}}"> {{ diet.capitalize() }}</option>
-                        {% endfor %}
-                    </option>
-                </select>
-                <select class="select" name="maxCalories" id="maxCalories">
-                    <option selected>
-                        <span class="text-muted">Max Calories</span></option>
-                        {% for maxCalories in maxCalorieses %}
-                        <option value="{{maxCalories}}"> {{ maxCalories }}</option>
-                        {% endfor %}
-                    </option>
-                </select>
-                <select class="select" name="maxFat" id="maxFat">
-                    <option selected>
-                        <span class="text-muted">Max Fat</span></option>
-                        {% for maxFat in maxFats %}
-                        <option value="{{maxFat}}"> {{ maxFat }}</option>
-                        {% endfor %}
-                    </option>
-                </select>
-                
-                    <button class="btn btn-outline-success btn-lg" style="background-color:#fda898;" type="submit">Refine</button>
-                   
-                
+    <div id="card" class="text-center mb-4 border border-success rounded p-4" style="background-color: #d7ebe9;">
+        <h5>Search Recipes by Ingredients</h5>
+            <form id="card" type="submit" action="/filter" role="filter">
+                <div class="container">
+                    <input data-autocomplete list="recipe-suggestion" class="form-control" type="text" name="query" placeholder="Type Ingredients (It can be multiple ingredients)">
+                    <div class="mt-3">
+                        <button class="btn btn-outline-success btn-lg" style="background-color:#fda898;" type="submit" >Search</button>
+                    </div>
+                </div>
+                    
             </form>
     </div>
+   
+        <div id="card" class="text-center mb-4 border border-success rounded p-4" style="background-color: #d7ebe9;"> 
+            <h5>Refine Your Search By Calories</h5>
+                <form id="card" action="/refine" role="refine">
+                    <select class="select" name="diet" id="diet">
+                        <option selected>
+                            <span class="text-muted">Diets</span></option>
+                            {% for diet in diets %}
+                            <option value="{{diet}}"> {{ diet.capitalize() }}</option>
+                            {% endfor %}
+                        </option>
+                    </select>
+                    <select class="select" name="maxCalories" id="maxCalories">
+                        <option selected>
+                            <span class="text-muted">Max Calories</span></option>
+                            {% for maxCalories in maxCalorieses %}
+                            <option value="{{maxCalories}}"> {{ maxCalories }}</option>
+                            {% endfor %}
+                        </option>
+                    </select>
+                    <select class="select" name="maxFat" id="maxFat">
+                        <option selected>
+                            <span class="text-muted">Max Fat</span></option>
+                            {% for maxFat in maxFats %}
+                            <option value="{{maxFat}}"> {{ maxFat }}</option>
+                            {% endfor %}
+                        </option>
+                    </select>
+                    <div>
+                        <button class="btn btn-outline-success btn-lg mt-3" style="background-color:#fda898;"type="submit">Refine</button>
+                    </div>
+                </form>
+        </div>
     {% for r in recipes %}
         <div class="card border col-4 col-sm-10-6 justify-content-center align-items-center mb-4 mx-auto" style="background-color: #fef6f4;">
             <a href="/recipes/{{r.id}}" data-id="{{r.id}}" class="show-recipe">
                 <div class="vertical-group mb-4 mx-auto">
                     <img src="{{r.image}}" class="card-img-top" alt="{{r.name}}">
-                        <div class="card-body recipe-info">
-                            <h5 class="text-danger text-center card-title">{{r['title']}}</h5></a>
-                                <div class="card-body">
-                                    <p class="card-text text-right">Total cook time: {{r.readyInMinutes}} minutes</p>
-                                    <p class="card-text text-right">Serves: {{r.servings}} </p>
-                                    
-                                </div>
+                        <div class="card-body recipe-info text-center">
+                            <h5 class="text-danger card-title">{{r['title']}}</h5></a>
+                                
                                 {% if g.user %}
                                 <button data-id="{{r.id}}" class='fav btn btn-sm'>
                                     <i class="{% if r.id in recipe_ids %}fas fa-heart fa-2x{% else %}far fa-heart fa-2x{% endif %}"></i>
@@ -70,11 +78,16 @@
     <div class="jumbotron">
         <div class="container">
             <h1 class="display-4 text-danger text-center">Recipe not available!
-                <a href="/" class="btn btn-outline-warning btn-lg">Home</a>
+                
             </h1>
         </div>
     </div>
     {% endif %}
+
+    <div class="flex">
+        <a href="/random" class="tn-lg"><h2>Want some more random recipes???</h2></a>
+
+    </div>
     <div class="flex">
         <a href="/" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Home</a>
     </div>

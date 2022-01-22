@@ -2,8 +2,11 @@
 {% block title %}Search Ingredient{% endblock %}
 
 {% block content %}
-<h1>Search Ingredient </h1>
-
+<h1 class="text-center text-danger">Search Ingredient </h1>
+<div class="container border border-success rounded mx-auto text-center mb-3 p-3" style="background-color: #fef6f4;">
+    <span>Typing what you have eaten for each meal and click on  <img class="logo" src="/static/image/plus-icon.png" alt="logo"> 
+        to add it into your meal</span>
+</div>
 <div class="border border-success rounded p-4 container" id="search-ingredient" >
     <form type="submit">
             <input data-autocomplete list="food-suggestion" class="form-control" type="text" name="query" placeholder="Type Ingredient (eg. carrots, spinach, etc.)">
@@ -40,10 +43,10 @@
    
 
 
-<div class="container">
+<div class="container mt-3">
     <a href="/meals" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Your Meal</a>
 </div>
-<div class="container">
+<div class="container mt-3">
     <a href="/" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Home</i></a>  
 </div>
 

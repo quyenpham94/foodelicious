@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Recipes from Random{% endblock %}
 {% block content %}
-<div class="border border-success rounded p-4 container">
+<div class="border border-success rounded p-3 text-center flex container row">
     {% if recipes %}
         <div id="recipe-info" class="row justify-content-center align-items-center">
             <div id="jumbotron col-3 my-4">
@@ -33,8 +33,8 @@
                                 </option>
                             </select>
                             <div>
-                                <button class="btn btn-outline-info btn-lg" type="submit">Refine</button>
-                                <a href="/" class="btn btn-outline-info btn-lg">Home</a>
+                                <button class="btn btn-outline-success btn-lg mt-3" style="background-color:#fda898;"  type="submit">Refine</button>
+                                
                             </div>
                         </form>
                 </div>
@@ -74,5 +74,8 @@
         </div>
     </div>
     {% endif %}
+    <div class="flex">
+        <a href="/" class="btn btn-outline-success btn-lg" style="background-color:#fda898;">Home</a>
+    </div>
 </div>
 {% endblock %}
