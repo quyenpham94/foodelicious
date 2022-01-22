@@ -31,3 +31,13 @@ There will be some recommended meals so that the user can choose and follow it t
 Technologies:
 Python/Flask, PostgreSQL, SQLAlchemy, Heroku, Jinja, RESTful APIs, JavaScript, HTML, CSS
 
+## Installation
+
+### Before You Begin
+You will need python3 and pip3 installed for this project. You will also need to setup  Portgres Database if you want to allow the user to save each recipe or each food. Remember, in order to save the recipe or the food the user must register and login, for that you will need a DB.
+
+#### Installation Instructions
+1. Clone the repo.
+  ```sh
+  https://github.com/quyenpham94/foodelicious.git
+  ```
