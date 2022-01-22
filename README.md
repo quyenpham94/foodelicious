@@ -7,7 +7,7 @@ This project take the information from the Spoonacular API (https://spoonacular.
 
 #### <div align='center'> Project Proposal </div>
 
-## Goal:
+## Goal
 Foodelicious is a web application that is designed to support people's daily meal with numerous recipes. It also provides the nutrition of each recipe and each food that user eat everyday so that they can manage their diet. User can refine the diet, calories, and fats to reach their limit nutrition every day. Users are also able to save their favorite recipes in their account so that they can re-read them.    
 ### The demographic of users:
 Everyone who wants to have a healthy life or diet process can use this website to support their goal. It could be easy-to-use so that the user does not need to know some specific high technology. The user just needs to search/click on the food they ate on their meal and the app will calculate the nutrition itself and return to the user.
