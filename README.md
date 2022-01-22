@@ -1,11 +1,11 @@
 # eat-cleaning-app
 
-#### <div align='center'>Try the Foodelicious App Here</div>
-#### <div align='center'>http://foodelicious-quyen.herokuapp.com/</div>
+### <div align='center'>Try the Foodelicious App Here</div>
+### <div align='center'>http://foodelicious-quyen.herokuapp.com/</div>
 
 This project take the information from the Spoonacular API (https://spoonacular.com/)
 
-#### <div align='center'> Project Proposal </div>
+## <div align='center'> Project Proposal </div>
 
 ## Goal
 Foodelicious is a web application that is designed to support people's daily meal with numerous recipes. It also provides the nutrition of each recipe and each food that user eat everyday so that they can manage their diet. User can refine the diet, calories, and fats to reach their limit nutrition every day. Users are also able to save their favorite recipes in their account so that they can re-read them.    
